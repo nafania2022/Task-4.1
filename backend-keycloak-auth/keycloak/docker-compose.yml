@@ -1,0 +1,17 @@
+version: '3.3'
+services:
+  keycloak:
+    image: jboss/keycloak:16.1.1
+    ports:
+      - "8024:8080"
+    environment:
+      - KEYCLOAK_USER=admin
+      - KEYCLOAK_PASSWORD=admin
+    volumes:
+      - ./keycloak/realms/export:/tmp/export
+    command:
+      - "-Dkeycloak.migration.action=export"
+      - "-Dkeycloak.migration.provider=singleFile"
+      - "-Dkeycloak.migration.realmName=ITM"
+      - "-Dkeycloak.migration.usersExportStrategy=REALM_FILE"
+      - "-Dkeycloak.migration.file=/tmp/export/ITM.json"

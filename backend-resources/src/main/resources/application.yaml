@@ -4,7 +4,6 @@ server:
 spring:
   application:
     name: backend-resources
-
   security:
     oauth2:
       resourceserver:
@@ -16,4 +15,4 @@ keycloak:
   resource: backend-resources
   auth-server-url: http://backend-keycloak-auth:8080/auth
   credentials:
-    secret: <ключ от клиента backend-resources>
+    secret: gHMRdDk4wFM65giZVyK6Rik1v1AZSvDP
